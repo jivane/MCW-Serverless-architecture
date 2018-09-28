@@ -58,6 +58,11 @@ At the end of the hands-on-lab, you will have confidence in designing, developin
 
 Cloud-Native Apps
 
+
+## Azure VM
+[![Deploy Linux Devtools VM to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjivane%2FMCW-Serverless-architecture%2Fmaster%2FDevVM%2Fazuredeploy.json)
+
+
 ## Related references
 
 [MCW](https://github.com/Microsoft/MCW)
