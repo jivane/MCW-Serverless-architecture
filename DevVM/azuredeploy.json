@@ -4,19 +4,21 @@
     "parameters": {
         "location": {
             "type": "string",
-			"defaultValue":"northeurope"
+             "defaultValue": "westeurope"
+
         },
         "networkInterfaceName": {
             "type": "string",
-			"defaultValue": "demotest948"
+               "defaultValue": "testmachine716"
         },
         "networkSecurityGroupName": {
             "type": "string",
-			"defaultValue": "demotest-nsg"
+            "defaultValue": "testmachine-nsg"
+           
         },
         "networkSecurityGroupRules": {
             "type": "array",
-			 "defaultValue": [
+             "defaultValue": [
                 {
                     "name": "RDP",
                     "properties": {
@@ -31,65 +33,66 @@
                     }
                 }
             ]
+
         },
         "virtualNetworkName": {
-            "type": "string"
-			 ,"defaultValue": "VMMCW-vnet"
+            "type": "string",
+              "defaultValue": "testrg-vnet"
         },
         "addressPrefix": {
-            "type": "string"
-			 ,"defaultValue": "10.0.0.0/24"
+            "type": "string",
+              "defaultValue": "10.0.0.0/24"
         },
         "subnetName": {
-            "type": "string"
-			,"defaultValue": "default"
+            "type": "string",
+               "defaultValue": "default"
         },
         "subnetPrefix": {
-            "type": "string"
-			 ,"defaultValue": "10.0.0.0/24"
+            "type": "string",
+               "defaultValue": "10.0.0.0/24"
         },
         "publicIpAddressName": {
-            "type": "string"
-			 ,"defaultValue": "demotest-ip"
+            "type": "string",
+            "defaultValue": "testmachine-ip"
         },
         "publicIpAddressType": {
-            "type": "string"
-			 ,"defaultValue": "Dynamic"
-			 
+            "type": "string",
+                "defaultValue": "Dynamic"
         },
         "publicIpAddressSku": {
-            "type": "string"
-			 ,"defaultValue": "Basic"
+            "type": "string",
+             "defaultValue": "Basic"
         },
         "virtualMachineName": {
-            "type": "string"
+            "type": "string",
+              "defaultValue": "testmachine"
         },
         "virtualMachineRG": {
-            "type": "string"
-			 ,"defaultValue": "VMMCW"
+            "type": "string",
+              "defaultValue": "testrg"
         },
         "osDiskType": {
-            "type": "string"
-			 ,"defaultValue": "Premium_LRS"
+            "type": "string",
+             "defaultValue": "Premium_LRS"
         },
         "virtualMachineSize": {
-            "type": "string"
-			 ,"defaultValue": "Standard_D4s_v3"
+            "type": "string",
+                "defaultValue": "Standard_DS4_v2"
         },
         "adminUsername": {
-            "type": "string"
-			 ,"defaultValue": "workshopMCW"
+            "type": "string",
+              "defaultValue": "workshopMCW"
         },
         "adminPassword": {
-            "type": "secureString"
-			,"defaultValue": "1PasswordWorkshop1"
+            "type": "secureString",
+              "defaultValue": "1PasswordWorkshop1"
         }
     },
     "variables": {
         "nsgId": "[resourceId(resourceGroup().name, 'Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroupName'))]",
         "vnetId": "[resourceId(resourceGroup().name,'Microsoft.Network/virtualNetworks', parameters('virtualNetworkName'))]",
         "subnetRef": "[concat(variables('vnetId'), '/subnets/', parameters('subnetName'))]",
-		 "customScriptFileName": "ArmUpdate.ps1",
+        "customScriptFileName": "ArmUpdate.ps1",
         "customScriptUri": "https://raw.githubusercontent.com/jivane/MCW-Serverless-architecture/master/DevVM/ArmUpdate.ps1"
     },
     "resources": [
@@ -189,9 +192,9 @@
                         }
                     },
                     "imageReference": {
-                        "publisher": "MicrosoftWindowsServer",
-                        "offer": "WindowsServer",
-                        "sku": "2016-Datacenter",
+                        "publisher": "MicrosoftVisualStudio",
+                        "offer": "VisualStudio",
+                        "sku": "VS-2017-Comm-Win10-N",
                         "version": "latest"
                     }
                 },
@@ -211,12 +214,12 @@
                         "provisionVmAgent": true
                     }
                 },
-                "licenseType": "Windows_Server"
+                "licenseType": "Windows_Client"
             },
             "tags": {}
         },
         {
-            "name": "Microsoft.CustomScriptExtension-20180921175730",
+            "name": "Microsoft.CustomScriptExtension-20180928181459",
             "apiVersion": "2015-01-01",
             "type": "Microsoft.Resources/deployments",
             "properties": {
@@ -226,12 +229,12 @@
                 },
                 "parameters": {
                     "vmName": {
-                        "value": "[parameters('virtualMachineName')]"
+                        "value": "testmachine"
                     },
                     "location": {
-                        "value": "northeurope"
+                        "value": "westeurope"
                     },
-                     "fileUris": [
+                  "fileUris": [
                                 "[variables('customScriptUri')]"
                             ],
                             "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFileName'))]"
