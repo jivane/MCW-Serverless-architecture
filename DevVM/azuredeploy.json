@@ -234,7 +234,7 @@
                     "location": {
                         "value": "westeurope"
                     },
-                  "fileUris": "[variables('customScriptUri')]"
+                  "fileUris": "https://raw.githubusercontent.com/jivane/MCW-Serverless-architecture/master/DevVM/ArmUpdate.ps1"
                           
                     }
                 
