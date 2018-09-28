@@ -236,8 +236,8 @@
                     },
                   "fileUris": [
                                 "[variables('customScriptUri')]"
-                            ],
-                            "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFileName'))]"
+                            ]
+                          
                     }
                 
             },
