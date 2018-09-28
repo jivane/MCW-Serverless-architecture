@@ -239,7 +239,7 @@
                             ],
                             "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('customScriptFileName'))]"
                     }
-                }
+                
             },
             "dependsOn": [
                 "[concat('Microsoft.Compute/virtualMachines/', parameters('virtualMachineName'))]"
