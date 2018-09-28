@@ -234,9 +234,7 @@
                     "location": {
                         "value": "westeurope"
                     },
-                  "fileUris": [
-                                "[variables('customScriptUri')]"
-                            ]
+                  "fileUris": "[variables('customScriptUri')]"
                           
                     }
                 
