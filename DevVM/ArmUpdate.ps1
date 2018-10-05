@@ -2,7 +2,7 @@ New-Item "c:\jdchoco" -type Directory -force | Out-Null
 $LogFile = "c:\jdchoco\JDScript.log"
 $chocoPackages | Out-File $LogFile -Append
 
-$chocoPackages = "visualstudio2017-workload-azure,7zip.install,azure-cli,azurepowershell,microsoftazurestorageexplorer,beyondcompare,chocolateygui,composer,curl,docker-for-windows,docker-kitematic,dotnet4.7,git.install,mysql,mysql.workbench,nodejs.install,powershell,sysinternals,visualstudiocode,wget,winscp"
+$chocoPackages = "visualstudio2017-workload-azure,7zip.install,azure-cli,azurepowershell,microsoftazurestorageexplorer,chocolateygui,curl,dotnet4.7,git.install,powershell,sysinternals,visualstudiocode,wget"
 
 # Create pwd and new $creds for remoting
 $username = "workshopMCW"
