@@ -1,7 +1,7 @@
 $user="workshopMCW"
 $password="MyOnePass:123"
 $tenantId ="6e92a5ab-8e47-4d8c-a98c-0f74fc9b8dd7"
-$number=300
+$number=30
 # Install-Module AzureAD
 $Credential = Get-Credential
 $tenant = Connect-AzureAD -Credential $Credential -TenantId $tenantId
